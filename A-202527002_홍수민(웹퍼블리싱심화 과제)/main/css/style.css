@@ -1,0 +1,395 @@
+@charset "utf-8";
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body{
+    background-color: #f5ff86;
+
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color:rgba(75, 118, 193, 0.8);
+    color: #ffffff;
+    position: sticky;
+    padding: 0 5rem;
+    top:0;
+    height: 100px;
+    z-index: 1;
+}
+
+.logo{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar .menu{
+   display: flex; 
+}
+
+.menu-item{
+   position: relative;
+   text-align: center;
+   width: 150px;
+   padding: 1.5rem;
+}
+
+.navbar a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+}
+
+.navbar a:hover{
+    color: #ffb5cd;
+}
+
+.submenu{
+   display:none;
+   top: 100%;
+   left: 0;
+   position: absolute;
+   background-color: #333333;
+   min-width: 180px; 
+}
+
+.submenu li{
+    border-bottom:1px solid #555555 ;
+}
+
+.submenu li a{
+     color: #fff; 
+     padding: 10px;
+     text-decoration: none;
+     font-size: 14px;   
+}
+
+.submenu li a:hover{
+   background-color: #ffb5cd;
+   color: #ffffff; 
+}
+
+.menu-item:hover .submenu{
+    display: block;
+}
+
+
+.hero{
+   background-image: url(../img/Cyprus.jpg); /* 이미지경로 */
+   background-size:cover ;
+   background-position: center;
+   display: flex;
+   justify-content: center;                                 
+   align-items: center;
+   text-align: center;
+   height: 80vh;
+   position: relative;
+}
+
+
+.hero-content h1{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+/* work */
+.t_work{
+   text-align: center;
+   background-color: #66b8ff;
+   padding-top: 30px;
+   
+}
+
+.t_work h1{
+    color: #fff;
+    font-size: 3rem;
+}
+
+.work{
+    /* background-image:url(../img/Cyprus.jpg); */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0;
+    /* min-height: 100vh; *//* height: 100vh; */
+    gap: 50px;
+}
+
+
+.hexa{
+    width: 300px;
+    height: 300px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.hexa:hover{
+    transform: translateY(-40px);
+}
+
+
+.shape{
+   /* clip-path: polygon(30% 0%, 70% 0%, 100% 50%,70% 100%,30% 100%,0% 50%);  */
+ clip-path: ellipse(42% 50% at 50% 50%);
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+   /*  특정 모양으로 잘라내는 역할 */
+}
+
+
+.shape img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cap{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.hexa:hover .cap{
+    opacity: 1;
+}
+
+.hexa:nth-child(1) .cap{
+    background:linear-gradient(to top, rgb(94, 125, 160),transparent);
+}
+
+
+.hexa:nth-child(2) .cap{
+    background:linear-gradient(to top, rgb(121, 205, 127),transparent);
+}
+
+
+.hexa:nth-child(3) .cap{
+    background:linear-gradient(to top, rgb(234, 135, 145),transparent);
+}
+
+
+
+/* about */
+.section-inner{
+    width:1280px;
+    min-height: 100vh;
+}
+
+.accordion-content{
+    display: flex;
+     background-color: #ffff00;
+}
+
+.focus{
+    flex: 1; 
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordian{
+    flex: 4;
+    display: flex;
+}
+
+.accordian * {
+    transition: 0.5s;
+}
+
+.accordian li{
+    height: 600px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #000;
+    cursor: pointer;
+    position: relative;
+    padding: 20px;
+}
+
+.accordian:hover li{
+    flex: 1;
+}
+
+.accordian li:hover{
+    flex: 3;
+    background-color: #f8f8f8;
+}
+
+.accordian li:hover .number{
+    color: #ff7728;
+}
+
+.accordian li:before{
+    content: attr(data-text);
+    /* :before, after 삽입할 위치 */
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font: 14px;
+    color: #999;
+
+}
+
+.accordian li .number{
+    font-size: 6rem;
+    transform: translateY(-60px);
+    position: relative;
+}
+
+.accordian li .number:after{
+    content: '';
+    position: absolute;
+    background-color: #000;
+    bottom: -20px;
+    left: 0;
+    height: 6px;
+    width: 100%;
+}
+
+
+.footer {
+  background-color: #f8f9fa; /* 전체 배경은 아주 연한 회색 혹은 아이보리 */
+  padding: 40px 20px;
+  border-top: 1px solid #96bfe7; /* 베이비 블루 색상으로 상단 라인 포인트 */
+  font-family: 'Pretendard', sans-serif;
+  color: #333;
+}
+
+.footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #96bfe7; /* 강조색: 베이비 블루 */
+  margin-bottom: 5px;
+}
+
+.footer-desc {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 25px;
+}
+
+.footer-links {
+  margin-bottom: 25px;
+}
+
+.footer-links a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #96bfe7; /* 마우스 올렸을 때 베이비 블루로 변경 */
+}
+
+.footer-bottom {
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+
+.arts{
+    padding-top: 30px;
+    display: flex;
+    gap: 20px;
+    counter-reset: item; /* 글자순서를 정한다. */
+}
+.art{
+    flex: 1;   /* 남은 공간을 비율로 채워주겠다 */
+    position: relative;
+    
+}
+
+.art:before{ /* 특정한 요소 앞에 가상요소를 추가해주는 선택자 */
+  content: counter(item);
+  counter-increment:item;
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  line-height:45px;
+  background-color: #888080;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  z-index: 10;
+  border-radius: 0 0 7px 0;
+}
+
+.art:hover:before{
+    background-color: #ffa813;
+}
+
+.photo{
+    position: relative;
+    height: 480px;
+    
+    
+}
+
+
+.photo a img {
+    width: 100%;
+    height: 450px;       /* 추가: 부모인 .photo의 높이(400px)에 맞춤 */
+    position: absolute;
+    transition: 0.5s;
+    object-fit: cover;   /* 추가: 비율을 유지하면서 박스에 꽉 채우고 남는 부분은 자름 */
+    object-position: top; 
+    left: 0;            
+    top: 0;              
+}
+
+.photo a img:first-child{
+    z-index: 1;
+}
+
+.photo:hover a img:first-child{
+    opacity: 0;
+}
+
+
+.detail{
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.detail span{
+    display: block;
+}
+
+.year{
+/*     margin-right: 10px; */
+    color: #e77a06;
+}
+.name{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
