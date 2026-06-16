@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <link href="css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            
+            emailjs.init("PBnrnO4dVMV7zTaUk"); 
+        })();
+    </script>
+</head>
+<body>
+   <header>
+      <div class="logo">PORTFOLIO✨</div>
+      <nav class="navbar">
+        <ul class="menu">
+          <li class="menu-item"><a href="../main/index.html">Main</a></li>
+          <li class="menu-item"><a href="../project/portfolio.html">Portfolio</a></li>
+          <li class="menu-item">
+              <a href="../resume/resume.html">About</a>
+              <ul class="submenu">
+                 <li><a href="../resume/resume.html">Resume</a></li>
+                 <li><a href="../contact/contact.html">Contact</a></li>
+              </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="contact-container">
+        <section class="profile-card">
+            <div class="profile-img-zone">
+                <img src="img/프로필.png" alt="프로필">
+            </div>
+            <div class="profile-info-zone">
+                <h1>LET'S WORK TOGETHER! ☕</h1>
+                <p class="sub-text">새로운 프로젝트 제안이나 궁금한 점이 있으시다면 언제든 편하게 연락해 주세요.</p>
+                
+                <div class="sns-links">
+                    <a href="https://www.instagram.com/b1uxwxng?igsh=MWxrY3Flb2xodTd6bw%3D%3D&utm_source=qr" target="_blank" class="sns-item instagram">📷 Instagram</a>
+                    <a href="https://m.blog.naver.com/strawberrypxnic" target="_blank" class="sns-item blog">📝 Blog</a>
+                    <a href="https://youtube.com/@luvxxbx?" target="_blank" class="sns-item youtube">▶️ YouTube</a>
+                    <a href="mailto:luvxxbx@gmail.com" class="sns-item email">✉️ luvxxbx@gmail.com</a>
+                    <a href="tel:010-0000-0000" class="sns-item phone">📞 010-9655-8557</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="mail-form-card">
+            <h2>MESSAGE TO SUMIN 📬</h2>
+            <p class="form-desc">아래 양식을 작성하시면 메일함으로 바로 메시지가 전달됩니다.</p>
+            
+            <form id="contact-form" class="contact-form">
+                <div class="form-group-row">
+                    <div class="form-group">
+                        <label for="company">회사명 / 기관명</label>
+                        <input type="text" id="company" name="company" placeholder="예: 00컴퍼니" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">답변받을 이메일 주소</label>
+                        <input type="email" id="email" name="email" placeholder="example@email.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">제목</label>
+                    <input type="text" id="subject" name="subject" placeholder="문의 제목을 입력해 주세요" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">내용</label>
+                    <textarea id="message" name="message" rows="7" placeholder="협업 내용, 일정, 예산 등 구체적인 내용을 적어주시면 빠른 답변에 도움이 됩니다 :)" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">보내기 ✨</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const submitBtn = document.querySelector('.submit-btn');
+            submitBtn.innerText = "보내는 중... ⏳";
+            submitBtn.disabled = true;
+
+            // ❗ [수정 완료] 아까 상단에 잘못 들어갔던 수민님의 Service ID를 하단 변수에 올바르게 배치했습니다.
+            const serviceID = 'service_k9c85ha'; 
+            // ❗ [수정 완료] Email Templates 탭에서 템플릿 ID(예: template_xxxxxx)를 복사해서 아래에 꼭 넣어주세요!
+            const templateID = 'template_9zub36w'; 
+
+            emailjs.sendForm(serviceID, templateID, this)
+                .then(() => {
+                    submitBtn.innerText = "보내기 ✨";
+                    submitBtn.disabled = false;
+                    alert('메일이 성공적으로 전송되었습니다! 곧 연락드리겠습니다. 🥰');
+                    document.getElementById('contact-form').reset(); 
+                }, (err) => {
+                    submitBtn.innerText = "보내기 ✨";
+                    submitBtn.disabled = false;
+                    alert('메일 전송에 실패했습니다. 오류: ' + JSON.stringify(err));
+                });
+        });
+    </script>
+</body>
+</html>
